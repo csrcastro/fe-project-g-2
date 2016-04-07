@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/csrcastro/fe-project-g-2/issues"
   },
-  "homepage": "https://github.com/csrcastro/fe-project-g-2#readme"
+  "homepage": "https://github.com/csrcastro/fe-project-g-2#readme",
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
 }
