@@ -1,13 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+//Components
+import Ui from './components/ui/ui.js';
+import Container from './components/containers/test';
 
-var Ui = require('./components/ui/ui.js');
-
-var Container = require('./components/containers/test');
-
-var layout = <Container>
-				<Ui name="cesar"/>
+const layout = <Container>
+				<Ui name="your name here"/>
 			</Container>
 
 

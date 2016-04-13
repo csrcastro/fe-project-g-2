@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-module.exports = React.createClass({
+export default React.createClass({
 	render: function(){
 		return (
 			<div>
@@ -10,3 +10,24 @@ module.exports = React.createClass({
 		)
 	}
 });
+
+
+//Class implementation
+
+
+// class Container extends React.Component{
+// 	constructor(props){
+// 		super(props);
+// 	}
+
+// 	render(){
+// 		return (
+// 			<div>
+// 				<h1>Container</h1>
+// 				<div>{this.props.children}</div>
+// 			</div>
+// 		)
+// 	}
+// }
+
+// export default Container;

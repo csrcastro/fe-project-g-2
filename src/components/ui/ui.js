@@ -1,12 +1,15 @@
-var React = require('react');
+import React from 'react';
 
-function uiTest(props){
-	return (
+const UiTest = props => (
 		<div>
 			<p>UI</p>
 			<p>{props.name}</p>
 		</div>
-	)
+)
+
+
+UiTest.propTypes = {
+	name: React.PropTypes.string.isRequired
 }
 
-module.exports = uiTest
+export default UiTest
