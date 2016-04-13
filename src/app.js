@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
+import bootstrap from 'bootstrap/dist/css/bootstrap.min.css'; // Look at that, we are importing a css file... Is this real? No, it's Webpack
 
 //Components
 import Ui from './components/ui/ui.js';
