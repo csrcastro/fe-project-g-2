@@ -15,20 +15,21 @@ module.exports = { // Actual configuration object returned by this file, this co
     entry: path.resolve('src/app.js'), // Declaration of our main application file (entry point), Webpack will parse this file and look for the modules to be loaded into the bundle
 
     module: { // Here we list the options that will affect our modules before bundling
+         // A collection of automatically applied loaders (think of these as the agents that affect our modules)
         loaders: [{
             test: /\.css$/,
-            loaders: ['style', 'css']
+            loaders: ['style', 'css'] // loader for our css files, we run style-loader, then the css-loader 
 
         }, {
             test: /\.(woff|woff2|eot|ttf|svg)$/,
-            loader: 'url?limit=100000'
+            loader: 'url?limit=100000' // A loader for our fonts, this uses the url-loader (and file-loader under the hood)
 
-        }, { // A collection of automatically applied loaders (think of these as the agents that affect our modules)
+        }, { 
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: "babel-loader",
+            loader: "babel-loader", // Our Babel loader responsible for our JSX and ES6 compilation
             query: {
-                presets: ["es2015", "react"]
+                presets: ["es2015", "react"] // we need to setup the presets
             }
         }]
     },
