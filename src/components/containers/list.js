@@ -1,7 +1,13 @@
 import React from 'react';
 import Axios from 'axios';
 
+//Config
 import Config from '../../config/config';
+
+//Helpers
+import {Dump} from '../../helpers/development';
+
+//Components
 import Loading from '../ui/loading'
 
 
@@ -36,7 +42,7 @@ export default React.createClass({
 					{
 						this.state.list.map((post)=>{
 							return(
-								<li key={post.id}>I am a list item, build me at src/components/ui/listItem.js</li>
+								<li key={post.id}>I am a list item, build me at src/components/ui/listItem.js <br/> {Dump(post)}</li>
 							)
 						})
 					}
