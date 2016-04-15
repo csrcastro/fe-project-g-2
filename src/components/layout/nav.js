@@ -24,7 +24,7 @@ export default React.createClass({
 
 		const pages = this.state.loading ? <li>loading</li> : this.state.pages.map((page)=>{
 								return <NavItem key={page.id} path={page.slug} name={page.title.rendered}/>
-							})
+							});
 
 		return (
 			<nav className="navbar navbar-default">
