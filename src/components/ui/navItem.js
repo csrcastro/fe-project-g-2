@@ -2,9 +2,9 @@ import React from 'react'
 import {Link} from 'react-router'
 
 const Item = (props) => (
-	<li>
-		<Link to={props.path}>{props.name}</Link>
-	</li>
+		<Link to={props.path} className="btn btn-default navbar-btn text-uppercase" activeClassName="active">
+		{props.name}
+		</Link>
 )
 
 Item.propTypes = {
