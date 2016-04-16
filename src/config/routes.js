@@ -14,8 +14,8 @@ export default (
 		<Route path="/" component={Layout}>
 			<IndexRoute component={Home} />
 			<Route path="list" component={List}/>
-			<Route path="/:page" component={Page}/>
-			<Route path="post/:id" component={Post} />
+			<Route path=":page" component={Page}/>
+			<Route path="post/:post" component={Post} />
 		</Route>
 	</Router>
 )
