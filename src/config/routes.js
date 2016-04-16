@@ -5,6 +5,7 @@ import Layout from '../components/layout/layout';
 import Home from '../components/ui/home';
 import List from '../components/containers/list' 
 import Page from '../components/containers/page' 
+import Post from '../components/containers/post' 
 
 
 
@@ -14,7 +15,7 @@ export default (
 			<IndexRoute component={Home} />
 			<Route path="list" component={List}/>
 			<Route path="/:page" component={Page}/>
-			<Route path="post/:id" />
+			<Route path="post/:id" component={Post} />
 		</Route>
 	</Router>
 )
