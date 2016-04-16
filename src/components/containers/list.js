@@ -44,7 +44,7 @@ export default React.createClass({
 						this.state.list.map((post)=>{
 							return(
 								<li key={post.id}>
-									<Link to={'post/' + post.slug} post={post}> View me</Link>
+									<Link to={{pathname:'post/' + post.slug, state:{post: post}}} > View me</Link>
 									I am a list item, build me at src/components/ui/listItem.js 
 									<br/> {Dump(post)}
 								</li>
