@@ -1,14 +1,47 @@
 import React from 'react';
 
-export default React.createClass({
+import Axios from 'axios';
 
-	componentDidMount(){
-		console.log(this.props.routeParams.post)
+import RouterStateMixin from '../../mixins/router-state';
+import {Dump} from '../../helpers/development';
+
+export default React.createClass({
+	mixins:[RouterStateMixin],
+	fetchPost(slug){
+
+		Axios.get(Config.apiUrl + 'posts?slug=='+ slug).then((post)=>{
+			this.setState({
+				loading: false,
+				post: post.data
+			});
+		});
+		
+	},
+
+	getInitialState(){
+		return{
+			loading: true,
+			post:{}
+		}
+	},
+	componentWillReceiveProps(nextProps){
+
+		this.checkRouterState(nextProps, 'post', 'fetchPost');
+
+	},
+	componentWillMount(){
+
+		this.checkRouterState(this.props, 'post', 'fetchPost');
+
 	},
 	render(){
 		return(
-			<div></div>
+			<div>
+				<p>I am a Post ({this.props.routeParams.post})</p>
+					<p>Build my ui component at src/components/ui/post.js</p>
+					<p>Data:</p> 
+					{Dump(this.state.post)}
+			</div>
 		)
 	}
-
 })
