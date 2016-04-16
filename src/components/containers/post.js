@@ -2,8 +2,13 @@ import React from 'react';
 
 import Axios from 'axios';
 
+import Config from '../../config/config';
+
 import RouterStateMixin from '../../mixins/router-state';
 import {Dump} from '../../helpers/development';
+
+
+import Comments from './comments';
 
 export default React.createClass({
 	mixins:[RouterStateMixin],
@@ -41,6 +46,7 @@ export default React.createClass({
 					<p>Build my ui component at src/components/ui/post.js</p>
 					<p>Data:</p> 
 					{Dump(this.state.post)}
+				<Comments id={this.state.post.id}/>
 			</div>
 		)
 	}
