@@ -5,9 +5,12 @@ import Config from '../../config/config';
 
 import {Dump} from '../../helpers/development';
 
-import Loading from '../ui/loading'
+import RouterStateMixin from '../../mixins/router-state'
+
+import Loading from '../ui/loading';
 
 export default React.createClass({
+	mixins:[RouterStateMixin],
 	getInitialState(){
 		return {
 			loading: true,
@@ -26,30 +29,14 @@ export default React.createClass({
 		
 	},
 
-	checkPage(props){
-
-		if(props.location.state.page){
-			this.setState({
-				loading: false,
-				page: props.location.state.page
-			});
-			return;
-		}
-
-		this.setState({
-			loading: true
-		});
-		this.fetchPage(props.routeParams.page);
-
-	},
 	componentWillReceiveProps(nextProps){
 
-		this.checkPage(nextProps)
+		this.checkRouterState(nextProps, 'page', 'fetchPage');
 
 	},
 	componentWillMount(){
 
-		this.checkPage(this.props)
+		this.checkRouterState(this.props, 'page', 'fetchPage');
 
 	},
 	render(){
