@@ -1,10 +1,37 @@
 import React from 'react';
+import Axios from 'axios';
 
-import Sidebar from '../containers/sidebar.js'
-import Nav from './nav'
+//Config
+import Config from '../../config/config';
+//Components
+import Sidebar from '../containers/sidebar.js';
+import Nav from './nav';
 
 export default React.createClass({
+
+	contextTypes:{
+		router: React.PropTypes.object.isRequired
+	},
+
+	getInitialState(){
+		return{
+			pagesLoading: true,
+			pages: []
+		}
+	},
+
+	componentDidMount(){
+
+		Axios.get(Config.apiUrl + 'pages').then((pages)=>{
+			this.setState({
+				pagesLoading: false,
+				pages: pages.data
+			});
+		});
+
+	},
 	render(){
+
 		return(
 			<div className="container-fluid">
 				<div className="row">
@@ -13,7 +40,7 @@ export default React.createClass({
 					</div>
 				</div>
 				<div className="row">
-					<Nav />
+					<Nav loading={this.state.pagesLoading} pages={this.state.pages} />
 				</div>
 				<div className="row">
 					<div className="col-md-4">

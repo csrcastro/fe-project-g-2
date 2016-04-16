@@ -1,15 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-const Item = (props) => (
-		<Link to={props.path} className="btn btn-default navbar-btn text-uppercase" activeClassName="active">
-		{props.name}
-		</Link>
-)
+const Item = (props) => <Link to={{pathname: props.slug, state:props.page}} className="btn btn-default navbar-btn text-uppercase" activeClassName="active">{props.title}</Link>
 
 Item.propTypes = {
-	path: React.PropTypes.string.isRequired,
-	name: React.PropTypes.string.isRequired
+	page: React.PropTypes.object,
+	title: React.PropTypes.string.isRequired,
+	slug: React.PropTypes.string.isRequired
 }
 
 export default Item
