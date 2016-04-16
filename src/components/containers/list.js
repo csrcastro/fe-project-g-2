@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {Link} from 'react-router'
 
 //Config
 import Config from '../../config/config';
@@ -42,7 +43,11 @@ export default React.createClass({
 					{
 						this.state.list.map((post)=>{
 							return(
-								<li key={post.id}>I am a list item, build me at src/components/ui/listItem.js <br/> {Dump(post)}</li>
+								<li key={post.id}>
+									<Link to={'post/' + post.slug} post={post}> View me</Link>
+									I am a list item, build me at src/components/ui/listItem.js 
+									<br/> {Dump(post)}
+								</li>
 							)
 						})
 					}
