@@ -47,7 +47,8 @@ module.exports = { // Actual configuration object returned by this file, this co
 
     output: { // Tells Webpack how to write the compiled files to disk. In our case it will write to ./public/scripts.js
         path: path.resolve(__dirname, 'public'),
-        filename: 'scripts.js'
+        filename: 'scripts.js',
+        publicPath: '/'
     },
 
     plugins: [ // Adds additional plugins to the compiler
