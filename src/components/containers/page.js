@@ -14,27 +14,43 @@ export default React.createClass({
 			page: {}
 		}
 	},
-	componentWillReceiveProps(nextProps){
+
+	fetchPage(slug){
+
+		Axios.get(Config.apiUrl + 'pages?slug=='+ slug).then((page)=>{
+			this.setState({
+				loading: false,
+				page: page.data
+			});
+		});
+		
+	},
+
+	checkPage(props){
+
+		if(props.location.state.page){
+			this.setState({
+				loading: false,
+				page: props.location.state.page
+			});
+			return;
+		}
+
 		this.setState({
 			loading: true
 		});
-
-		Axios.get(Config.apiUrl + 'pages?slug=='+ nextProps.routeParams.page).then((page)=>{
-			this.setState({
-				loading: false,
-				page: page.data
-			});
-		});
+		this.fetchPage(props.routeParams.page);
 
 	},
-	componentDidMount(){
+	componentWillReceiveProps(nextProps){
 
-		Axios.get(Config.apiUrl + 'pages?slug=='+ this.props.routeParams.page).then((page)=>{
-			this.setState({
-				loading: false,
-				page: page.data
-			});
-		});
+		this.checkPage(nextProps)
+
+	},
+	componentWillMount(){
+
+		this.checkPage(this.props)
+
 	},
 	render(){
 
